@@ -1,10 +1,14 @@
+import argparse
 import datetime
-import glob
 import os
 import re
 import subprocess
 import traceback
 from typing import NamedTuple, Optional
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("filename", nargs="+")
 
 
 class PrintSelvBillet(NamedTuple):
@@ -235,7 +239,8 @@ def _fmt(b: PrintSelvBillet) -> str:
 
 
 def main() -> None:
-    for f in sorted(glob.glob("2*.pdf")):
+    args = parser.parse_args()
+    for f in args.filename:
         t = subprocess.check_output(("pdftotext", f, "-"))
         try:
             new_name = _fmt(parse_text(t)) + ".pdf"
