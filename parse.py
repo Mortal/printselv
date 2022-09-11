@@ -108,6 +108,9 @@ def parse_text(
             if "InterCityLyn" in part:
                 i = part.index("InterCityLyn")
                 part[i] += " %s" % part.pop()
+            elif "Regionaltog" in part:
+                i = part.index("Regionaltog")
+                part[i] += " %s" % part.pop()
             assert len(part) == 7, (kind, part)
 
     assert line is not None
