@@ -78,10 +78,10 @@ def parse_text(
         while not line.startswith(SECTIONS):
             if mo := re.match(r"^([0-9]+)\.([a-z]{3,4})\.?$", line):
                 dates.append((int(mo.group(1)), mo.group(2)))
-                assert 2 >= len(dates) == len(times) + 1, (dates, times)
+                # assert 2 >= len(dates) == len(times) + 1, (dates, times)
             elif mo := re.match(r"^([0-9]{1,2}):([0-9]{1,2})$", line):
                 times.append((int(mo.group(1)), int(mo.group(2))))
-                assert 2 >= len(dates) == len(times), (dates, times)
+                # assert 2 >= len(dates) == len(times), (dates, times)
             elif kind == "Billetoplysninger" and line in TICKET_KINDS:
                 ticket_kinds.append(line)
             elif kind == "Billetoplysninger" and line == "-":
