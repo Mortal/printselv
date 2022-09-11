@@ -49,6 +49,7 @@ def parse_text(
         "Ung",
         "Ung (DSB WildCard)",
         "Ung (DSB Ung Kort)",
+        "Pensionist 67+",
     )
     S_BASE = (
         "Afgang fra",
